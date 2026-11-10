@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Karl Mensing – Garten- und Landschaftsbau in Heek-Nienborg (Entwurf)</title>
+<meta name="description" content="Unverbindlicher Entwurf von Leon Oßendorf für Garten- und Landschaftsbau Karl Mensing, Heek-Nienborg.">
+<link rel="preload" href="fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="img/hero.jpg" as="image">
+<link rel="stylesheet" href="css/stil.css">
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+
+<header class="kopf">
+  <a class="marke" href="#top" aria-label="Karl Mensing, zur Startseite">
+    <img src="img/karlchen.png" alt="" width="64" height="51">
+    <span class="marke-text"><small>Garten- &amp; Landschaftsbau</small><b>Karl Mensing</b></span>
+  </a>
+  <nav class="menue" aria-label="Hauptmenü">
+    <a href="#garten">Ihr Garten</a>
+    <a href="#gemeinden">Gemeinden &amp; Betriebe</a>
+    <a href="#karriere">Karriere</a>
+    <a href="#familie">Über uns</a>
+  </nav>
+  <a class="tel" href="tel:+4925681042"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg><span>02568 1042</span></a>
+</header>
+
+<main id="inhalt">
+
+<section class="held" id="top" aria-labelledby="held-titel">
+  <figure class="held-bild">
+    <img src="img/hero.jpg" alt="Das Team von Karl Mensing jubelt vor der Halle in Heek-Nienborg, vorne Mulcher und Kompaktlader" width="1800" height="1125">
+  </figure>
+  <div class="held-tafel">
+    <h1 id="held-titel"><span>planen.</span> <span>pflanzen.</span> <span>pflegen.</span></h1>
+    <p>Garten- und Landschaftsbau aus Heek-Nienborg. Seit 1952 in Familienhand, heute 40 Leute mit eigenem Maschinenpark.</p>
+  </div>
+  <div class="tore" role="list">
+    <a role="listitem" class="tor" href="#garten"><b>Für Ihren Garten</b><span>Wege, Terrassen, Zäune, Rasen, Pflanzen, Pflege</span></a>
+    <a role="listitem" class="tor" href="#gemeinden"><b>Für Gemeinden und Betriebe</b><span>Grünflächen, Baumkontrolle, Spielplätze, Winterdienst</span></a>
+    <a role="listitem" class="tor tor-job" href="#karriere"><b>Gärtner/in gesucht</b><span>Bewerben in zwei Minuten, auch vom Handy</span></a>
+  </div>
+  <div class="gras" aria-hidden="true"></div>
+</section>
+
+<section class="jahr" id="jahr" aria-labelledby="jahr-titel">
+  <div class="rahmen">
+    <div class="jahr-kopf">
+      <h2 id="jahr-titel">Was jetzt dran ist</h2>
+      <p>Im Garten und auf Grünflächen hat jeder Monat seine Arbeit. Hier steht, was gerade passt.</p>
+    </div>
+    <div class="monate" role="tablist" aria-label="Monat wählen"></div>
+    <div class="monat-inhalt" id="monat-inhalt" aria-live="polite">
+      <div class="monat-name"><span id="monat-titel">November</span><small>Kurz fragen, ob es passt: <a href="tel:+4925681042">02568 1042</a></small></div>
+      <div class="monat-spalten">
+        <div class="monat-karte">
+          <h3>Im eigenen Garten</h3>
+          <ul id="liste-garten"></ul>
+          <button class="knopf knopf-hell" data-anfrage="garten" type="button">Dafür anfragen</button>
+        </div>
+        <div class="monat-karte">
+          <h3>Für Gemeinden und Betriebe</h3>
+          <ul id="liste-gewerbe"></ul>
+          <button class="knopf knopf-hell" data-anfrage="gewerbe" type="button">Dafür anfragen</button>
+        </div>
+      </div>
+      <p class="monat-hinweis" id="monat-hinweis" hidden></p>
+    </div>
+  </div>
+</section>
+
+<section class="garten" id="garten" aria-labelledby="garten-titel">
+  <div class="rahmen">
+    <div class="abschnitt-kopf">
+      <h2 id="garten-titel">Für Ihren Garten</h2>
+      <p>Von der Beratung vor Ort bis zur fertigen Fläche: alles aus einer Hand, mit eigenen Leuten und eigenen Maschinen.</p>
+    </div>
+    <div class="garten-raster">
+      <button type="button" class="kachel k-gross" data-thema="Wege und Pflaster"><img src="img/weg.jpg" alt="Geschwungener Gartenweg aus hellem Pflaster mit Laterne und Beeten" loading="lazy"><span><b>Wege, Einfahrten, Terrassen</b>Natur- oder Betonstein, jedes Verlegemuster</span></button>
+      <button type="button" class="kachel" data-thema="Zaun und Sichtschutz"><img src="img/sichtschutz.jpg" alt="Sichtschutzwand mit Säulen-Thuja an einem weißen Haus" loading="lazy"><span><b>Zaun und Sichtschutz</b>Stabgitter, Schmuckzaun, Tore</span></button>
+      <button type="button" class="kachel" data-thema="Rasen"><img src="img/rasen.jpg" alt="Frisch verlegter Rollrasen mit Buchsbaumhecke" loading="lazy"><span><b>Rasen</b>Fertigrasen oder Einsaat, fast ganzjährig</span></button>
+      <button type="button" class="kachel" data-thema="Pflanzen"><img src="img/pflanzung.jpg" alt="Neu angelegtes Beet mit Gräsern, Stauden und Rindenmulch" loading="lazy"><span><b>Pflanzen</b>Bäume, Sträucher, Beete</span></button>
+      <button type="button" class="kachel" data-thema="Gartenpflege"><img src="img/hecke.jpg" alt="Mitarbeiter schneidet eine Hecke mit der Motor-Heckenschere" loading="lazy"><span><b>Gartenpflege</b>Hecken, Gehölze, Beete, das ganze Jahr</span></button>
+      <button type="button" class="kachel" data-thema="Baumfällung"><img src="img/faellung.jpg" alt="Baumfäller mit Motorsäge an einem dicken Stamm" loading="lazy"><span><b>Bäume fällen</b>samt Wurzelstock und Abtransport</span></button>
+    </div>
+    <p class="garten-zeile">Tippen Sie auf ein Bild, und die Anfrage ist schon vorbereitet. <a href="#anfrage">Direkt zur Anfrage</a></p>
+  </div>
+</section>
+
+<section class="gemeinden" id="gemeinden" aria-labelledby="gem-titel">
+  <div class="gras gras-oben" aria-hidden="true"></div>
+  <div class="rahmen">
+    <div class="abschnitt-kopf hell">
+      <h2 id="gem-titel">Für Gemeinden, Betriebe und Wohnanlagen</h2>
+      <p>Grünflächen, Bäume und Wege, auf die sich Verwaltungen, Firmen und Hausverwaltungen verlassen können.</p>
+    </div>
+    <div class="gem-gitter">
+      <ul class="lv">
+        <li><img src="img/maeher.jpg" alt="" loading="lazy"><div><b>Grünflächenpflege</b><span>Mähen, Kanten stechen, Beete frei halten, Grünschnitt abfahren</span></div></li>
+        <li><img src="img/baum.jpg" alt="" loading="lazy"><div><b>FLL-Baumkontrolle</b><span>Regelkontrolle durch zertifizierten Baumkontrolleur, auch per Drohne</span></div></li>
+        <li><img src="img/buehne.jpg" alt="" loading="lazy"><div><b>Baumpflege und Fällung</b><span>Kronenpflege, Totholz, Problembäume, mit Teupen-Hubarbeitsbühnen</span></div></li>
+        <li><img src="img/buerste.jpg" alt="" loading="lazy"><div><b>Wildkraut ohne Chemie</b><span>Foamstream, Wildkrautbürste und -egge für Pflaster und Wege</span></div></li>
+        <li><img src="img/mulch.jpg" alt="" loading="lazy"><div><b>Spielplatzkontrolle</b><span>Jährliche Hauptinspektion nach DIN EN 1176-7</span></div></li>
+        <li><img src="img/winter.jpg" alt="" loading="lazy"><div><b>Winterdienst</b><span>Räumen und Streuen für Wohnanlagen, Gewerbe und Privathaushalte</span></div></li>
+      </ul>
+      <div class="gem-seite">
+        <article class="projekt">
+          <div class="projekt-bilder"><img src="img/aqua1.jpg" alt="Unterkonstruktion der Terrasse am AquAhaus Ahaus im Bau" loading="lazy"><img src="img/aqua3.jpg" alt="Fertige Holzterrasse am AquAhaus Ahaus" loading="lazy"></div>
+          <div class="projekt-text">
+            <h3>Projekt: Terrasse am AquAhaus Ahaus</h3>
+            <p>300 Quadratmeter Terrasse am Freizeitbad, von der Unterkonstruktion bis zur fertigen Fläche.</p>
+          </div>
+        </article>
+        <article class="inklusion">
+          <img src="img/inklusion.jpg" alt="Philipp Mensing (rechts) mit Heinrich Schöttelkotte" loading="lazy">
+          <div>
+            <h3>Inklusionsabteilung seit 2010</h3>
+            <p>In der Grünflächenpflege arbeiten 7 Menschen mit Behinderung ganz normal im Team.</p>
+            <p class="klein">Öffentliche Aufträge, die Inklusionsbetriebe ausführen können, werden ihnen nach § 224 SGB IX bevorzugt angeboten.</p>
+          </div>
+        </article>
+        <button class="knopf knopf-gruen" type="button" data-anfrage="gewerbe">Angebot für Ihre Flächen anfragen</button>
+      </div>
+    </div>
+
+    <div class="maschinen">
+      <h3>Eigener Maschinenpark</h3>
+      <div class="maschinen-band" tabindex="0" aria-label="Maschinen, seitlich scrollbar">
+        <figure><img src="img/foam.jpg" alt="Lkw mit Foamstream-Anlage auf einer Rasenfläche" loading="lazy"><figcaption>Foamstream, Wildkraut mit Heißschaum</figcaption></figure>
+        <figure><img src="img/drohne.jpg" alt="Drohne über Baumkronen" loading="lazy"><figcaption>Drohne Yuneec Typhoon Q500 4K</figcaption></figure>
+        <figure><img src="img/fraese.jpg" alt="Gelbe Baumstumpffräse im Einsatz" loading="lazy"><figcaption>Vermeer Baumstumpffräse SC 60 TX</figcaption></figure>
+        <figure><img src="img/hacker.jpg" alt="Holzhacker beim Zerkleinern von Ästen" loading="lazy"><figcaption>Holzhacker Jensen A 231</figcaption></figure>
+        <figure><img src="img/kubota.jpg" alt="Kubota-Rasentraktor beim Mähen" loading="lazy"><figcaption>Kubota-Rasentraktoren mit Hochentleerung</figcaption></figure>
+        <figure><img src="img/lkw.jpg" alt="Lkw mit Karl-Mensing-Beschriftung" loading="lazy"><figcaption>Eigener Fuhrpark, gut zu erkennen</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="karriere" id="karriere" aria-labelledby="kar-titel">
+  <div class="rahmen kar-gitter">
+    <div class="kar-text">
+      <p class="schild">Wir stellen ein</p>
+      <h2 id="kar-titel">Gärtner/in im Garten- und Landschaftsbau</h2>
+      <p class="kar-lead">Ein Team von 40 Leuten, ein Hof in Nienborg und Maschinen, mit denen die Arbeit Spaß macht.</p>
+      <ul class="haken">
+        <li>Familienbetrieb seit 1952, zwei Geschäftsführer aus der Familie</li>
+        <li>Abwechslung: Privatgärten, Gemeinden, Bäume, Pflaster, Winterdienst</li>
+        <li>Moderne Technik von Fendt, Kubota, Teupen und Vermeer</li>
+        <li>Teamgeist: Sieger beim Stadtradeln der Gemeinde Heek 2021 und 2022</li>
+      </ul>
+      <p class="kar-wer">Ihr Ansprechpartner: <b>Karl Mensing</b>, Geschäftsführer</p>
+      <figure class="kar-bild"><img src="img/karneval.jpg" alt="Mensing-Unimog zieht einen Karnevalswagen beim Umzug" loading="lazy"><figcaption>Auch mal ohne Arbeit: beim Rosenmontagsumzug in Ahaus-Wüllen.</figcaption></figure>
+    </div>
+    <form class="formular" id="bewerbung" novalidate>
+      <h3>Bewerben in zwei Minuten</h3>
+      <fieldset>
+        <legend>Für welche Stelle?</legend>
+        <div class="chips" data-name="stelle" data-einzeln>
+          <button type="button" class="chip an">Gärtner/in GaLaBau</button>
+          <button type="button" class="chip">Helfer/in Grünpflege</button>
+          <button type="button" class="chip">Initiativ</button>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Führerschein B/BE <span class="opt">(Angabe optional)</span></legend>
+        <div class="chips" data-name="fuehrerschein" data-einzeln>
+          <button type="button" class="chip">Ja</button>
+          <button type="button" class="chip">Nein</button>
+          <button type="button" class="chip">Bin dabei</button>
+        </div>
+      </fieldset>
+      <label>Telefon oder E-Mail<input name="kontakt" type="text" autocomplete="tel" inputmode="email" required></label>
+      <label>Name <span class="opt">(Angabe optional)</span><input name="name" type="text" autocomplete="name"></label>
+      <label>Ein paar Sätze zu Ihnen <span class="opt">(Angabe optional)</span><textarea name="text" rows="3"></textarea></label>
+      <label class="datei">Lebenslauf <span class="opt">(Angabe optional)</span><input type="file" name="cv" accept=".pdf,.jpg,.jpeg,.png"></label>
+      <button class="knopf knopf-gruen voll" type="submit">Bewerbung abschicken</button>
+      <p class="entwurf-vermerk">Entwurf, wird nicht versendet.</p>
+      <div class="danke" hidden><b>Danke, das hat geklappt.</b> In der fertigen Seite landet Ihre Bewerbung sofort bei Karl Mensing, und Sie bekommen eine Bestätigung.</div>
+    </form>
+  </div>
+</section>
+
+<section class="familie" id="familie" aria-labelledby="fam-titel">
+  <div class="rahmen">
+    <div class="fam-gitter">
+      <div>
+        <h2 id="fam-titel">Seit 1952 in Familienhand</h2>
+        <p>Gegründet am 1. Oktober 1952 von Karl Mensing senior und Maria Mensing. Heute führen Karl und Philipp Mensing den Betrieb an der Gartenstraße in Nienborg.</p>
+        <div class="zahlen">
+          <div><b>1952</b><span>gegründet</span></div>
+          <div><b>40</b><span>Mitarbeiter</span></div>
+          <div><b>2010</b><span>Inklusionsabteilung</span></div>
+        </div>
+      </div>
+      <ul class="koepfe">
+        <li><img src="img/karl.jpg" alt="Porträt Karl Mensing" loading="lazy"><b>Karl Mensing</b><span>Geschäftsführer</span><a href="tel:+491722801552">0172 2801552</a></li>
+        <li><img src="img/philipp.jpg" alt="Porträt Philipp Mensing" loading="lazy"><b>Philipp Mensing</b><span>Geschäftsführer</span><a href="tel:+4915116502300">0151 16502300</a></li>
+        <li><img src="img/doris.jpg" alt="Porträt Doris Mensing" loading="lazy"><b>Doris Mensing</b><span>Buchhaltung</span><a href="tel:+491735665071">0173 5665071</a></li>
+      </ul>
+    </div>
+    <figure class="flotte"><img src="img/flotte.jpg" alt="Weiße Transporter mit Mensing-Beschriftung auf dem Betriebshof" loading="lazy"><figcaption>Der Hof in Nienborg. Unterwegs erkennt man uns am Gras auf den Wagen.</figcaption></figure>
+  </div>
+</section>
+
+<section class="anfrage" id="anfrage" aria-labelledby="anf-titel">
+  <div class="rahmen anf-gitter">
+    <div class="anf-text">
+      <h2 id="anf-titel">Anfrage</h2>
+      <p>Sagen Sie kurz, worum es geht. Wir melden uns und kommen bei Bedarf zum Ortstermin.</p>
+      <a class="anf-tel" href="tel:+4925681042">02568 1042</a>
+      <p class="klein">Mo bis Fr 8 bis 17 Uhr<br><a href="mailto:info@gartenbau-mensing.de">info@gartenbau-mensing.de</a></p>
+    </div>
+    <form class="formular" id="anfrage-form" novalidate>
+      <fieldset>
+        <legend>Worum geht es?</legend>
+        <div class="chips" data-name="thema">
+          <button type="button" class="chip">Wege und Pflaster</button>
+          <button type="button" class="chip">Zaun und Sichtschutz</button>
+          <button type="button" class="chip">Rasen</button>
+          <button type="button" class="chip">Pflanzen</button>
+          <button type="button" class="chip">Gartenpflege</button>
+          <button type="button" class="chip">Baumfällung</button>
+          <button type="button" class="chip">Grünflächenpflege</button>
+          <button type="button" class="chip">Baumkontrolle</button>
+          <button type="button" class="chip">Spielplatzkontrolle</button>
+          <button type="button" class="chip">Winterdienst</button>
+          <button type="button" class="chip">Wildkraut</button>
+          <button type="button" class="chip">Luftbilder</button>
+          <button type="button" class="chip">Etwas anderes</button>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Für wen? <span class="opt">(Angabe optional)</span></legend>
+        <div class="chips" data-name="objekt" data-einzeln>
+          <button type="button" class="chip">Privatgarten</button>
+          <button type="button" class="chip">Gewerbe</button>
+          <button type="button" class="chip">Gemeinde / öffentlich</button>
+          <button type="button" class="chip">Wohnanlage</button>
+        </div>
+      </fieldset>
+      <div class="zwei">
+        <label>Telefon oder E-Mail<input name="kontakt" type="text" autocomplete="tel" required></label>
+        <label>Ort <span class="opt">(Angabe optional)</span><input name="ort" type="text" autocomplete="address-level2"></label>
+      </div>
+      <label>Nachricht <span class="opt">(Angabe optional)</span><textarea name="text" rows="3"></textarea></label>
+      <label class="datei">Foto der Fläche <span class="opt">(Angabe optional)</span><input type="file" name="foto" accept="image/*"></label>
+      <button class="knopf knopf-gruen voll" type="submit">Anfrage abschicken</button>
+      <p class="entwurf-vermerk">Entwurf, wird nicht versendet.</p>
+      <div class="danke" hidden><b>Danke, Ihre Anfrage ist da.</b> In der fertigen Seite geht sie direkt ins Büro nach Nienborg, und Sie bekommen eine Bestätigung per Mail oder SMS.</div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="fuss">
+  <div class="gras" aria-hidden="true"></div>
+  <div class="rahmen fuss-gitter">
+    <div>
+      <p class="fuss-marke">Karl Mensing<br><small>Garten- &amp; Landschaftsbau</small></p>
+      <p>Gartenstraße 3a, 48619 Heek-Nienborg<br><a href="https://maps.google.com/?q=Gartenstra%C3%9Fe+3a,+48619+Heek" rel="noopener">Route in Google Maps</a></p>
+    </div>
+    <div>
+      <p>Telefon <a href="tel:+4925681042">02568 1042</a><br>Fax 02568 388405<br><a href="mailto:info@gartenbau-mensing.de">info@gartenbau-mensing.de</a></p>
+      <p>Mo bis Fr 8 bis 17 Uhr</p>
+    </div>
+    <div>
+      <p><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+      <p class="klein">Fotos: gartenbau-mensing.de (laut dortigem Impressum teils Adobe Stock).</p>
+    </div>
+  </div>
+  <p class="entwurf-hinweis">Unverbindlicher Entwurf von Leon Oßendorf, kein offizieller Auftritt von Garten- und Landschaftsbau Karl Mensing. <a href="https://leonossendorf.de">leonossendorf.de</a></p>
+</footer>
+
+<a class="anruf-leiste" href="tel:+4925681042">Anrufen: 02568 1042</a>
+
+<script src="js/seite.js" defer></script>
+</body>
+</html>
