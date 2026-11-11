@@ -121,6 +121,40 @@
     });
   });
 
+  /* ---------- Klickbare Bilder: Infofeld mit grossem Bild, Text und Beispielen ---------- */
+  var info=document.getElementById('info');
+  if(info&&info.showModal){
+    var iTitel=document.getElementById('info-titel'), iBild=info.querySelector('.info-bild img'), iText=info.querySelector('.info-text'),
+        iInhalt=info.querySelector('.info-inhalt'), iFuss=info.querySelector('.info-fuss'), iZahl=info.querySelector('.info-zaehler'),
+        iVor=info.querySelector('.info-weiter'), iRueck=info.querySelector('.info-zurueck'), reihe=[], stelle=0;
+    var zeigeBild=function(i,fokus){
+      stelle=(i+reihe.length)%reihe.length;var a=reihe[stelle];
+      iTitel.textContent=a.getAttribute('data-titel');
+      iBild.src=a.getAttribute('href');iBild.alt=a.getAttribute('data-alt')||'';
+      iBild.width=a.getAttribute('data-b');iBild.height=a.getAttribute('data-h');
+      var tpl=document.getElementById(a.getAttribute('data-detail'));
+      iText.textContent='';if(tpl)iText.appendChild(tpl.content.cloneNode(true));
+      iInhalt.classList.toggle('nurbild',!iText.textContent.trim());
+      iInhalt.classList.toggle('rundbild',+a.getAttribute('data-b')<500);
+      iFuss.hidden=reihe.length<2;iZahl.textContent='Bild '+(stelle+1)+' von '+reihe.length;
+      iInhalt.scrollTop=0;if(fokus)iTitel.focus();
+    };
+    document.addEventListener('click',function(e){
+      var a=e.target.closest('a.mehr');if(!a||e.ctrlKey||e.metaKey||e.shiftKey)return;
+      e.preventDefault();
+      reihe=[].slice.call(document.querySelectorAll('a.mehr[data-gruppe="'+a.getAttribute('data-gruppe')+'"]'));
+      info.showModal();zeigeBild(reihe.indexOf(a),true);
+    });
+    iVor.addEventListener('click',function(){zeigeBild(stelle+1,false);});
+    iRueck.addEventListener('click',function(){zeigeBild(stelle-1,false);});
+    info.querySelector('.info-zu').addEventListener('click',function(){info.close();});
+    info.addEventListener('click',function(e){if(e.target===info)info.close();});
+    info.addEventListener('keydown',function(e){
+      if(reihe.length<2||/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName))return;
+      if(e.key==='ArrowRight'){zeigeBild(stelle+1,false);}else if(e.key==='ArrowLeft'){zeigeBild(stelle-1,false);}
+    });
+  }
+
   /* ---------- Einblenden ---------- */
   var ziele=document.querySelectorAll('.zeig');
   if('IntersectionObserver' in window && !wenigBewegung()){
