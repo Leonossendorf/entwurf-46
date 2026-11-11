@@ -13,24 +13,32 @@
   var merk={};try{merk=JSON.parse(localStorage.getItem('mensing-anzeige')||'{}');}catch(e){}
   function sichern(){try{localStorage.setItem('mensing-anzeige',JSON.stringify(merk));}catch(e){}}
   var schalter={};document.querySelectorAll('[data-schalter]').forEach(function(b){schalter[b.getAttribute('data-schalter')]=b;});
+  function zeigeStand(b,an){b.setAttribute('aria-pressed',an?'true':'false');var s=b.querySelector('.stand');if(s)s.textContent=an?'an':'aus';}
   function anwenden(){
-    ['gross','kontrast'].forEach(function(k){html.classList.toggle(k,!!merk[k]);if(schalter[k])schalter[k].setAttribute('aria-pressed',merk[k]?'true':'false');});
+    ['gross','kontrast'].forEach(function(k){html.classList.toggle(k,!!merk[k]);if(schalter[k])zeigeStand(schalter[k],!!merk[k]);});
+  }
+  /* Das Symbol klappt die Schalter auf und zu */
+  var hk=document.querySelector('.hilfe-knopf'), hilfen=document.getElementById('hilfen');
+  if(hk&&hilfen){
+    var zu=function(fokus){if(hilfen.hidden)return;hilfen.hidden=true;hk.setAttribute('aria-expanded','false');if(fokus)hk.focus();};
+    hk.addEventListener('click',function(){var auf=hilfen.hidden;hilfen.hidden=!auf;hk.setAttribute('aria-expanded',auf?'true':'false');});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')zu(true);});
+    document.addEventListener('click',function(e){if(!e.target.closest('#hilfen')&&!e.target.closest('.hilfe-knopf'))zu(false);});
   }
   ['gross','kontrast'].forEach(function(k){if(schalter[k])schalter[k].addEventListener('click',function(){merk[k]=!merk[k];sichern();anwenden();});});
   anwenden();
   var sprecher=window.speechSynthesis, liest=false, vb=schalter.vorlesen;
   if(vb){
-    if(!sprecher){vb.hidden=true;}
+    if(!sprecher){vb.closest('li').hidden=true;}
     else{
-      var stoppLesen=function(){sprecher.cancel();liest=false;vb.setAttribute('aria-pressed','false');};
+      var stoppLesen=function(){sprecher.cancel();liest=false;zeigeStand(vb,false);};
       vb.addEventListener('click',function(){
         if(liest){stoppLesen();return;}
         var teile=[];document.querySelectorAll('main h1, main h2, main h3, main p, main li, main figcaption, main legend, main label').forEach(function(el){
           if(el.closest('[hidden]')||!el.offsetParent)return;var x=el.textContent.replace(/\s+/g,' ').trim();if(x)teile.push(x);});
-        liest=true;vb.setAttribute('aria-pressed','true');
+        liest=true;zeigeStand(vb,true);
         teile.forEach(function(x,i){var u=new SpeechSynthesisUtterance(x);u.lang='de-DE';u.rate=.95;if(i===teile.length-1)u.onend=stoppLesen;sprecher.speak(u);});
       });
-      document.addEventListener('keydown',function(e){if(e.key==='Escape'&&liest)stoppLesen();});
       window.addEventListener('pagehide',function(){sprecher.cancel();});
     }
   }

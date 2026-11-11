@@ -29,49 +29,50 @@ ul,ol{margin:0 0 1em;padding-left:1.2em}
 .dunkel{--fokus:#f4c71f}
 .dunkel :focus-visible,.kopf :focus-visible,.fuss :focus-visible,.held :focus-visible,.seitenkopf :focus-visible,.sprung :focus-visible,.park :focus-visible{outline-color:#f4c71f}
 
-/* ---------- Kopf ---------- */
-.kopf{position:sticky;top:0;z-index:100;background:var(--gruen);color:#fff}
-.kopf-innen{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;padding:.45rem 1.5rem;max-width:90rem;margin-inline:auto;position:relative}
-.marke{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:#fff;margin-right:auto}
-.marke-rund{width:3.6rem;height:3.6rem;border-radius:50%;background:#fff;display:grid;place-items:center;flex-shrink:0;box-shadow:0 0 0 .14rem var(--gelb)}
-.marke-rund img{width:2.9rem}
+/* ---------- Kopf ----------
+   Bewusst in px gebaut: Kopfzeile, Barrierefreiheits-Knopf und seine Schalter bleiben bei "Grosse Schrift"
+   gleich gross und an derselben Stelle. Nur das aufgeklappte Menue waechst mit. */
+.kopf{position:sticky;top:0;z-index:100;background:var(--gruen);color:#fff;font-size:16px;line-height:1.3}
+.kopf-innen{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:7px 24px;max-width:1440px;margin-inline:auto;position:relative}
+.marke{display:flex;align-items:center;gap:11px;text-decoration:none;color:#fff;margin-right:auto}
+.marke-rund{width:58px;height:58px;border-radius:50%;background:#fff;display:grid;place-items:center;flex-shrink:0;box-shadow:0 0 0 2px var(--gelb)}
+.marke-rund img{width:46px}
 .marke-text{display:flex;flex-direction:column;line-height:1.05}
-.marke-zeile{font-size:.72rem;font-weight:600;letter-spacing:.02em;color:#dbe9dc}
-.marke-name{font-family:"Source Serif",Georgia,serif;font-weight:800;font-size:1.6rem;letter-spacing:-.01em}
+.marke-zeile{font-size:11.5px;font-weight:600;letter-spacing:.02em;color:#dbe9dc}
+.marke-name{font-family:"Source Serif",Georgia,serif;font-weight:800;font-size:25.5px;letter-spacing:-.01em}
 .menue{margin-left:0}
-.menue ul{list-style:none;display:flex;gap:.1rem;margin:0;padding:0}
-.menue a{display:block;color:#fff;text-decoration:none;font-weight:600;font-size:1rem;padding:.65rem .65rem;border-radius:.3rem;white-space:nowrap}
+.menue ul{list-style:none;display:flex;gap:2px;margin:0;padding:0}
+.menue a{display:block;color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:10px 10px;border-radius:5px;white-space:nowrap}
 .menue a:hover,.menue a[aria-current]{background:rgba(255,255,255,.14)}
-.menue a[aria-current]{box-shadow:inset 0 -.18rem 0 var(--gelb)}
-.kopf-knopf{appearance:none;font:600 1rem "Figtree",sans-serif;color:#fff;background:transparent;border:.09rem solid rgba(255,255,255,.6);border-radius:.3rem;padding:.55rem .8rem;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;min-height:2.75rem;white-space:nowrap}
-.kopf-knopf:hover{background:rgba(255,255,255,.14)}
-.kopf-knopf svg{width:1.35rem;height:1.35rem;fill:currentColor;flex-shrink:0}
+.menue a[aria-current]{box-shadow:inset 0 -3px 0 var(--gelb)}
+.kopf-knopf{appearance:none;box-sizing:border-box;font:600 16px/1 "Figtree",system-ui,sans-serif;color:#fff;background:transparent;border:1.5px solid rgba(255,255,255,.7);border-radius:5px;height:44px;padding:0 13px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;margin:0}
+.kopf-knopf:hover,.kopf-knopf[aria-expanded=true]{background:rgba(255,255,255,.16)}
+.kopf-knopf svg{width:22px;height:22px;fill:currentColor;flex-shrink:0}
 .menue-knopf{display:none}
-.tel{display:inline-flex;align-items:center;gap:.5rem;background:var(--gelb);color:#111;text-decoration:none;font-weight:800;padding:.6rem .95rem;border-radius:.3rem;min-height:2.75rem;white-space:nowrap}
+.tel{box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;background:var(--gelb);color:#111;text-decoration:none;font:800 16px/1 "Figtree",system-ui,sans-serif;height:44px;padding:0 15px;border-radius:5px;white-space:nowrap}
 .tel:hover{background:#ffd940}
-.tel svg{width:1.1rem;height:1.1rem;fill:currentColor}
+.tel svg{width:18px;height:18px;fill:currentColor}
+.kopf :focus-visible{outline:3px solid #f4c71f;outline-offset:3px}
 
-/* Schalterleiste ganz oben. Bewusst in px: Die Knoepfe bleiben bei grosser Schrift gleich gross und an derselben Stelle. */
-.leiste{background:#07361c;color:#fff;font-size:15px;line-height:1.2}
-.leiste-innen{max-width:1440px;margin:0 auto;padding:6px 24px;display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:8px}
-.leiste-link{color:#fff;margin-right:auto;font-size:15px;padding:9px 0}
-.leiste :focus-visible{outline:3px solid #f4c71f;outline-offset:3px}
-.schalter{appearance:none;box-sizing:border-box;font:600 15px/1 "Figtree",system-ui,sans-serif;color:#fff;background:transparent;border:2px solid #fff;border-radius:5px;height:40px;padding:0 13px 0 10px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;white-space:nowrap;margin:0}
-.schalter:hover{background:rgba(255,255,255,.16)}
-.schalter .kasten{box-sizing:border-box;width:18px;height:18px;border:2px solid #fff;border-radius:3px;display:inline-block;position:relative;flex-shrink:0}
-.schalter[aria-pressed=true]{background:#f4c71f;color:#111;border-color:#f4c71f}
-.schalter[aria-pressed=true]:hover{background:#ffd940}
-.schalter[aria-pressed=true] .kasten{border-color:#111;background:#111}
-.schalter[aria-pressed=true] .kasten::after{content:"";position:absolute;left:4px;top:0;width:4px;height:9px;border:solid #f4c71f;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
-@media (max-width:640px){
-  .leiste-innen{padding:6px 12px;gap:6px;justify-content:flex-start}
-  .leiste-link,.schalter .lang{display:none}
-  .schalter{font-size:14px;padding:0 10px 0 8px}
-}
+/* Barrierefreiheit: Schalter hinter dem Symbol, ebenfalls in px */
+.hilfen{position:absolute;right:24px;top:100%;box-sizing:border-box;width:340px;max-width:calc(100vw - 16px);max-height:calc(100vh - 90px);overflow:auto;background:#fff;color:#15201a;border-radius:0 0 8px 8px;box-shadow:0 16px 40px rgba(0,0,0,.3);padding:16px;border-top:4px solid #f4c71f;font-size:16px;line-height:1.3}
+.kopf .hilfen :focus-visible{outline-color:#0b4f2a}
+.hilfen h2{font:800 19px/1.2 "Archivo",system-ui,sans-serif;font-stretch:88%;letter-spacing:0;margin:0 0 12px;color:#15201a}
+.hilfen-liste{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.schalter{appearance:none;box-sizing:border-box;width:100%;height:48px;display:flex;align-items:center;gap:11px;font:600 16px/1 "Figtree",system-ui,sans-serif;color:#15201a;background:#f4f2ea;border:2px solid #7c8a80;border-radius:6px;padding:0 13px;cursor:pointer;text-align:left;margin:0}
+.schalter:hover{border-color:#0b4f2a;background:#e6f0e2}
+.schalter .kasten{box-sizing:border-box;width:22px;height:22px;border:2px solid #15201a;border-radius:4px;background:#fff;display:inline-block;position:relative;flex-shrink:0}
+.schalter .stand{margin-left:auto;font-weight:700;font-size:14px;width:30px;text-align:right}
+.schalter[aria-pressed=true]{background:#0b4f2a;color:#fff;border-color:#0b4f2a}
+.schalter[aria-pressed=true]:hover{background:#07361c}
+.schalter[aria-pressed=true] .kasten{border-color:#f4c71f;background:#f4c71f}
+.schalter[aria-pressed=true] .kasten::after{content:"";position:absolute;left:6px;top:1px;width:5px;height:11px;border:solid #111;border-width:0 3px 3px 0;transform:rotate(45deg)}
+.hilfen-links{margin:14px 0 0;display:flex;flex-wrap:wrap;gap:4px 18px;font-size:15px}
+.hilfen-links a{color:#0b4f2a;padding:5px 0}
 
 /* ---------- Held ---------- */
 .held{background:var(--gruen);color:#fff;position:relative}
-.held-bild img{width:100%;height:auto;max-height:calc(100vh - 17.5rem - 52px);min-height:17rem;object-fit:cover;object-position:50% 12%}
+.held-bild img{width:100%;height:auto;max-height:calc(100vh - 17.5rem);min-height:17rem;object-fit:cover;object-position:50% 12%}
 .held-band{position:relative}
 .held-band .rahmen{padding-block:1.3rem 1.6rem}
 .held h1{font-size:clamp(2.5rem,1rem + 4.5vw,4.9rem);font-weight:900;font-stretch:78%;line-height:.95;margin:0;white-space:nowrap}
@@ -356,13 +357,13 @@ html.gross .menue-knopf{display:inline-flex}
 html.gross .menue{display:none;position:absolute;left:0;right:0;top:100%;background:var(--tief);padding:.5rem 1rem 1rem;box-shadow:0 1rem 2rem rgba(0,0,0,.3);margin:0}
 html.gross .menue.offen{display:block}
 html.gross .menue ul{flex-direction:column;gap:0}
-html.gross .menue a{padding:.85rem .6rem;border-bottom:.06rem solid rgba(255,255,255,.16);font-size:1.1rem}
+html.gross .menue a{padding:.85rem .6rem;border-bottom:.06rem solid rgba(255,255,255,.16);font-size:1.1rem;white-space:normal}
 @media (max-width:80em){
   .menue-knopf{display:inline-flex}
   .menue{display:none;position:absolute;left:0;right:0;top:100%;background:var(--tief);padding:.5rem 1rem 1rem;box-shadow:0 1rem 2rem rgba(0,0,0,.3);margin:0}
   .menue.offen{display:block}
   .menue ul{flex-direction:column;gap:0}
-  .menue a{padding:.85rem .6rem;border-bottom:.06rem solid rgba(255,255,255,.16);font-size:1.1rem}
+  .menue a{padding:.85rem .6rem;border-bottom:.06rem solid rgba(255,255,255,.16);font-size:1.1rem;white-space:normal}
 }
 @media (max-width:62em){
   .kopfzeile,.gem-gitter,.inkl,.kar-gitter,.ueber,.anf-gitter,.l-kopf,.zweispalt,.park{grid-template-columns:minmax(0,1fr)}
@@ -391,15 +392,16 @@ html.gross .menue a{padding:.85rem .6rem;border-bottom:.06rem solid rgba(255,255
   body{font-size:1rem}
   html{scroll-padding-top:5rem}
   .rahmen{padding-inline:1.1rem}
-  .kopf-innen{padding:.4rem .8rem;gap:.45rem}
-  .marke{gap:.5rem}
-  .marke-rund{width:2.9rem;height:2.9rem}
-  .marke-rund img{width:2.3rem}
-  .marke-name{font-size:1.22rem}
-  .marke-zeile{font-size:.6rem}
+  .kopf-innen{padding:6px 12px;gap:7px}
+  .marke{gap:8px}
+  .marke-rund{width:46px;height:46px}
+  .marke-rund img{width:37px}
+  .marke-name{font-size:19.5px}
+  .marke-zeile{font-size:9.6px}
   .tel .nr,.kopf-knopf .wort{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-  .tel{padding:.6rem .75rem}
-  .kopf-knopf{padding:.55rem .65rem}
+  .tel{padding:0;width:44px;justify-content:center}
+  .kopf-knopf{padding:0;width:44px;justify-content:center}
+  .hilfen{right:8px;left:8px;width:auto;max-width:none}
   .held h1{white-space:normal;font-size:clamp(2.6rem,13vw,3.6rem)}
   .held h1 span{display:block}
   .held-bild img{min-height:0;max-height:none}
