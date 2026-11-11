@@ -1,6 +1,6 @@
 (function(){
   var html=document.documentElement;
-  var wenigBewegung=function(){return html.classList.contains('ruhig')||matchMedia('(prefers-reduced-motion: reduce)').matches;};
+  var wenigBewegung=function(){return matchMedia('(prefers-reduced-motion: reduce)').matches;};
 
   /* ---------- Menü (Handy) ---------- */
   var mk=document.querySelector('.menue-knopf'), menue=document.getElementById('menue');
@@ -9,48 +9,31 @@
     menue.addEventListener('click',function(e){if(e.target.closest('a')){menue.classList.remove('offen');mk.setAttribute('aria-expanded','false');}});
   }
 
-  /* ---------- Hilfen: Schrift, Kontrast, Abstand, Links, Bewegung, Vorlesen ---------- */
-  var hk=document.querySelector('.hilfe-knopf'), hilfen=document.getElementById('hilfen');
-  var merk={};try{merk=JSON.parse(localStorage.getItem('mensing-hilfen')||'{}');}catch(e){}
-  function sichern(){try{localStorage.setItem('mensing-hilfen',JSON.stringify(merk));}catch(e){}}
-  var SCHRIFT=['normal','groß','sehr groß'];
+  /* ---------- Schalter oben: Grosse Schrift, Kontrast, Vorlesen (jeweils an oder aus) ---------- */
+  var merk={};try{merk=JSON.parse(localStorage.getItem('mensing-anzeige')||'{}');}catch(e){}
+  function sichern(){try{localStorage.setItem('mensing-anzeige',JSON.stringify(merk));}catch(e){}}
+  var schalter={};document.querySelectorAll('[data-schalter]').forEach(function(b){schalter[b.getAttribute('data-schalter')]=b;});
   function anwenden(){
-    html.classList.toggle('gross1',merk.schrift===1);html.classList.toggle('gross2',merk.schrift===2);
-    ['kontrast','luftig','unterstrichen','ruhig'].forEach(function(k){html.classList.toggle(k,!!merk[k]);});
-    if(!hilfen)return;
-    hilfen.querySelectorAll('[data-hilfe]').forEach(function(b){
-      var k=b.getAttribute('data-hilfe'),st=b.querySelector('.stand');
-      if(k==='schrift'){st.textContent=SCHRIFT[merk.schrift||0];}
-      else if(k!=='vorlesen'){b.setAttribute('aria-pressed',merk[k]?'true':'false');st.textContent=merk[k]?'an':'aus';}
-    });
+    ['gross','kontrast'].forEach(function(k){html.classList.toggle(k,!!merk[k]);if(schalter[k])schalter[k].setAttribute('aria-pressed',merk[k]?'true':'false');});
   }
-  function schliesseHilfen(fokus){if(!hilfen||hilfen.hidden)return;hilfen.hidden=true;hk.setAttribute('aria-expanded','false');if(fokus)hk.focus();}
-  if(hk&&hilfen){
-    hk.addEventListener('click',function(){var auf=hilfen.hidden;hilfen.hidden=!auf;hk.setAttribute('aria-expanded',auf?'true':'false');if(auf){hilfen.querySelector('button').focus();}});
-    document.addEventListener('keydown',function(e){if(e.key==='Escape')schliesseHilfen(true);});
-    document.addEventListener('click',function(e){if(!e.target.closest('#hilfen')&&!e.target.closest('.hilfe-knopf'))schliesseHilfen(false);});
-    var sprecher=window.speechSynthesis, liest=false;
-    function stoppLesen(){if(sprecher)sprecher.cancel();liest=false;var b=hilfen.querySelector('[data-hilfe=vorlesen]');if(b){b.setAttribute('aria-pressed','false');b.querySelector('.stand').textContent='starten';}}
-    hilfen.querySelectorAll('[data-hilfe]').forEach(function(b){
-      var k=b.getAttribute('data-hilfe');
-      if(k==='vorlesen'&&!sprecher){b.closest('li').hidden=true;return;}
-      b.addEventListener('click',function(){
-        if(k==='schrift'){merk.schrift=((merk.schrift||0)+1)%3;}
-        else if(k==='vorlesen'){
-          if(liest){stoppLesen();return;}
-          var teile=[];document.querySelectorAll('main h1, main h2, main h3, main p, main li, main figcaption, main legend, main label').forEach(function(el){
-            if(el.closest('[hidden]')||!el.offsetParent)return;var t=el.textContent.replace(/\s+/g,' ').trim();if(t)teile.push(t);});
-          liest=true;b.setAttribute('aria-pressed','true');b.querySelector('.stand').textContent='stoppen';
-          teile.forEach(function(t,i){var u=new SpeechSynthesisUtterance(t);u.lang='de-DE';u.rate=.95;if(i===teile.length-1)u.onend=stoppLesen;sprecher.speak(u);});
-          return;
-        }
-        else{merk[k]=!merk[k];}
-        sichern();anwenden();
-      });
-    });
-    window.addEventListener('pagehide',function(){if(sprecher)sprecher.cancel();});
-  }
+  ['gross','kontrast'].forEach(function(k){if(schalter[k])schalter[k].addEventListener('click',function(){merk[k]=!merk[k];sichern();anwenden();});});
   anwenden();
+  var sprecher=window.speechSynthesis, liest=false, vb=schalter.vorlesen;
+  if(vb){
+    if(!sprecher){vb.hidden=true;}
+    else{
+      var stoppLesen=function(){sprecher.cancel();liest=false;vb.setAttribute('aria-pressed','false');};
+      vb.addEventListener('click',function(){
+        if(liest){stoppLesen();return;}
+        var teile=[];document.querySelectorAll('main h1, main h2, main h3, main p, main li, main figcaption, main legend, main label').forEach(function(el){
+          if(el.closest('[hidden]')||!el.offsetParent)return;var x=el.textContent.replace(/\s+/g,' ').trim();if(x)teile.push(x);});
+        liest=true;vb.setAttribute('aria-pressed','true');
+        teile.forEach(function(x,i){var u=new SpeechSynthesisUtterance(x);u.lang='de-DE';u.rate=.95;if(i===teile.length-1)u.onend=stoppLesen;sprecher.speak(u);});
+      });
+      document.addEventListener('keydown',function(e){if(e.key==='Escape'&&liest)stoppLesen();});
+      window.addEventListener('pagehide',function(){sprecher.cancel();});
+    }
+  }
 
   /* ---------- Was jetzt dran ist ---------- */
   var leiste=document.querySelector('.monate');
